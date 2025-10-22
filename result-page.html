@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Your Sleep Type Result – Night-Time Fat-Burn Bottleneck</title>
+  <meta name="description" content="Your personalized Sleep & Slim result. Turn sleep into a fat-burn window with a 30-sec bedtime trigger. See the plan now." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Site globals (keep if you use them elsewhere) -->
+  <link rel="stylesheet" href="style.css?v=9" />
+  <link rel="stylesheet" href="quiz.css?v=1" />
+
+  <!-- Preload hero (swap to .webp if you have it) -->
+  <link rel="preload" as="image" href="./Images/ChatGPT Image Oct 16, 2025, 08_37_54 PM.png" fetchpriority="high" />
+
+  <!-- ===== RESULTS PAGE OVERRIDES (self-contained) ===== -->
+  <style>
+    :root{
+      --ink:#eaf0ff; --muted:#a7b4e9; --focus:#b8c3ff;
+      --accent1:#6c7cff; --accent2:#9b7cff;
+      --radius:16px; --header-h:64px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%}
+
+    /* Background on BODY */
+    body.quiz-body{
+      color:var(--ink); background:transparent !important;
+      position:relative; min-height:100vh;
+      --hero:url('./Images/ChatGPT Image Oct 16, 2025, 08_37_54 PM.png');
+    }
+    body.quiz-body::before{
+      content:""; position:fixed; inset:0; z-index:-2;
+      background-image:var(--hero); background-size:cover;
+      background-position:center center; background-repeat:no-repeat;
+    }
+    body.quiz-body::after{
+      content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+      background:linear-gradient(to bottom,
+        rgba(5,10,25,.35) 0%,
+        rgba(5,10,25,.45) 80%,
+        rgba(5,10,25,.80) 100%);
+      -webkit-backdrop-filter:blur(2.5px) saturate(125%);
+              backdrop-filter:blur(2.5px) saturate(125%);
+    }
+
+    /* Header */
+    .site-header.minimal.scrolled{
+      position:fixed; left:0; right:0; top:0; z-index:50;
+      background:rgba(7,10,22,.55)!important;
+      backdrop-filter:saturate(160%) blur(10px);
+      box-shadow:0 6px 24px rgba(0,0,0,.25)!important;
+    }
+    .brand, .brand-name{color:#fff; text-decoration:none; font-weight:900}
+    .quiz-steps-label{color:var(--muted); font-weight:800}
+
+    /* Remove any hero spacer */
+    .hero,.hero-landing,.quiz-hero,#resultHero,.hero-bg,.hero-overlay{display:none!important;height:0!important;min-height:0!important;background:transparent!important}
+
+    /* Main */
+    .quiz-main{ position:relative; z-index:1; padding-top:calc(var(--header-h) + 8px)!important; padding-bottom:72px; }
+    .quiz-main::before{
+      content:""; position:fixed; left:50%; transform:translateX(-50%);
+      top:0; width:100vw; height:100vh; z-index:0; pointer-events:none;
+      background:rgba(8,14,30,.14);
+      -webkit-backdrop-filter:blur(5px) saturate(135%); backdrop-filter:blur(5px) saturate(135%);
+    }
+    .container{ width:min(960px,92%); margin:0 auto; position:relative; z-index:1; }
+
+    /* Card “glass” */
+    .quiz-card{
+      position:relative; background:linear-gradient(180deg, rgba(8,14,30,.18), rgba(8,14,30,.14))!important;
+      -webkit-backdrop-filter:blur(3px) saturate(135%)!important;
+              backdrop-filter:blur(3px) saturate(135%)!important;
+      border:1px solid rgba(255,255,255,.06)!important; border-radius:var(--radius)!important;
+      box-shadow:0 10px 30px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.04)!important;
+      padding:1.4rem 1.6rem; margin:1rem auto; max-width:900px; width:100%;
+      opacity:0; transform:translateY(10px);
+      transition:opacity .4s ease, transform .4s ease;
+    }
+    .quiz-card.reveal{opacity:1; transform:none}
+
+    /* Typography */
+    .q-title,.h2,.h3{color:#fff!important}
+    .q-title{font-size:clamp(1.6rem,4.6vw,2.2rem); line-height:1.2; margin:.25rem 0 .6rem}
+    .q-sub,.muted,.small,.testimonial-text,.testimonial-meta{color:#e8ecff!important}
+    .result-list{margin:.4rem 0 0; padding-left:1.1rem}
+    .result-list li{line-height:1.55}
+
+    /* “pill” tag if not defined globally */
+    .pill{display:inline-block; padding:.35rem .7rem; border-radius:999px; font-weight:800; font-size:.9rem; background:rgba(255,255,255,.08); color:#fff}
+
+    /* CTAs */
+    .result-cta{margin-top:1.25rem}
+    .cta-proof-quote{margin:.6rem auto 1rem; max-width:680px; font-style:italic; color:#dfe4ff; opacity:.95}
+    .btn-primary{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:100%; max-width:420px; padding:1rem 1.6rem;
+      font-size:1.1rem; font-weight:800; text-decoration:none;
+      border-radius:999px; border:1px solid transparent;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2))!important; color:#0a1021!important;
+      box-shadow:0 0 24px rgba(108,124,255,.45);
+      transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+      animation:btnPulse 6s ease-in-out infinite;
+    }
+    .btn-primary:hover{transform:translateY(-2px); box-shadow:0 0 32px rgba(108,124,255,.7); filter:brightness(1.02)}
+    @keyframes btnPulse{
+      0%,100%{box-shadow:0 0 24px rgba(108,124,255,.45)}
+      50%{box-shadow:0 0 36px rgba(108,124,255,.75)}
+    }
+    .trust-row{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:.75rem; color:#cfd6ff; font-size:.9rem; opacity:.95}
+    .trust-item{display:flex; align-items:center; gap:.4rem; white-space:nowrap}
+    .trust-dot{width:6px; height:6px; border-radius:999px; background:#9fb0ff; opacity:.8}
+
+    /* Testimonials grid (compressed for mobile) */
+    .testimonials-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .testimonial{padding:.9rem 1rem!important; border:1px solid rgba(255,255,255,.08); border-radius:14px; background:rgba(255,255,255,.03)}
+    .testimonial-text{font-size:.95rem; line-height:1.45}
+    .testimonial-name{margin:.4rem 0 0; font-weight:800}
+    .testimonial-meta{font-size:.85rem; opacity:.9}
+    @media (max-width:900px){ .testimonials-grid{grid-template-columns:1fr 1fr} }
+    @media (max-width:580px){ .testimonials-grid{grid-template-columns:1fr} }
+
+    /* Footer on dark */
+    .site-footer,.footer-grid{background:transparent!important; border:none!important; box-shadow:none!important}
+    .footer-nav a{color:#ccd6ff!important; text-decoration:none}
+    .footer-nav a:hover{text-decoration:underline}
+
+    /* Above-the-fold micro-cta */
+    .abovefold-cta{margin:.7rem 0 0}
+    .abovefold-cta .btn-primary{max-width:320px}
+
+    /* Sticky mobile CTA */
+    .sticky-cta{
+      position:fixed; left:0; right:0; bottom:12px; z-index:99;
+      display:none; justify-content:center; padding:0 .75rem;
+    }
+    .sticky-cta a{
+      display:block; width:100%; max-width:520px; text-align:center;
+      padding:.95rem 1.2rem; border-radius:999px; font-weight:800;
+      background:linear-gradient(90deg,#6c7cff,#9b7cff); color:#0a1021;
+      box-shadow:0 8px 30px rgba(108,124,255,.45);
+    }
+    .sticky-cta.show{display:flex}
+
+    /* Mobile paddings */
+    @media (max-width:640px){
+      .quiz-card{padding:1.1rem 1.1rem!important}
+      .q-title{margin-top:.35rem}
+      .trust-row{font-size:.88rem}
+    }
+  </style>
+</head>
+
+<body class="quiz-body">
+  <!-- Header -->
+  <header class="site-header minimal scrolled" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-name">SleepSlimSecrets</span>
+      </a>
+      <span class="quiz-steps-label">Personalized Result</span>
+    </div>
+  </header>
+
+  <main class="quiz-main">
+    <div class="container" role="region" aria-label="Personalized Sleep Result">
+
+      <!-- RESULT CARD -->
+      <section class="quiz-card result-card">
+        <p class="pill" id="resultBadge">Your Sleep Type</p>
+        <h1 class="q-title" id="resultTitle">Night-Time Fat-Burn Bottleneck</h1>
+        <p class="q-sub" id="resultSub">
+          Based on your answers, your body’s metabolism is <strong>idling instead of burning fat overnight</strong> ,
+          a common “wired-but-tired” pattern caused by late-day cortisol and weak melatonin signals.
+          The fix is a <strong>30-second bedtime trigger</strong> that resets your hormones and turns sleep
+          into a fat-burn window. No workouts or strict dieting required.
+        </p>
+
+        <div class="center abovefold-cta">
+          <a class="btn btn-primary js-offer" href="#" rel="nofollow sponsored" aria-label="Start my sleep-first fat-loss plan">
+            Start My Sleep-First Fat-Loss Plan →
+          </a>
+          <div style="margin-top:.5rem;color:#cfd6ff;font-size:.9rem;opacity:.95;">
+            ⭐ 3,000+ verified buyers • 60-Day Money-Back Guarantee • Ships fast
+          </div>
+        </div>
+
+        <div class="result-grid" style="margin-top:1rem; display:grid; gap:18px; grid-template-columns:1fr 1fr">
+          <article class="result-box" style="background:transparent;border:none;padding:0;">
+            <h3 class="h3">What This Means for You</h3>
+            <ul class="result-list">
+              <li>Your body stays in <strong>“alert mode”</strong> at night → cravings and light sleep.</li>
+              <li>Evening <strong>cortisol stays high</strong>, and <strong>melatonin stays weak</strong>.</li>
+              <li>Result: <strong>slow overnight metabolism</strong> and a.m. hunger spikes.</li>
+            </ul>
+          </article>
+
+          <article class="result-box" style="background:transparent;border:none;padding:0;">
+            <h3 class="h3">Your 7-Night Reset Plan</h3>
+            <ol class="result-list">
+              <li><strong>30-sec Bedtime Ritual:</strong> repeat nightly, dim lights, no screens 30 min prior.</li>
+              <li><strong>No caffeine after 2 pm.</strong> Swap for herbal tea or water.</li>
+              <li><strong>Protein-first dinner,</strong> avoid sugar after 7 pm.</li>
+              <li><strong>Cool, dark room:</strong> 17–19 °C, blackout if possible.</li>
+              <li><strong>Optional support:</strong> add the sleep-first formula to speed hormone reset.</li>
+            </ol>
+          </article>
+        </div>
+
+        <p class="cta-proof-quote">“By night 3 my sleep was deeper and I woke up less hungry. Down 7 lbs by week 2.” — <strong>Sarah J.</strong></p>
+
+        <div class="result-cta center">
+          <h2 class="h2">Turn Your Sleep Into a Fat-Burn Window</h2>
+          <p class="muted small">Watch this short video showing how SleepLean supports overnight metabolism.</p>
+
+          <a id="cta-offer" class="btn btn-primary btn-xl btn-glow js-offer" href="#" rel="nofollow sponsored" aria-label="Watch how SleepLean works">
+            Watch the 90-Sec Explainer →
+          </a>
+
+          <div class="trust-row" aria-label="Trust badges">
+            <span class="trust-item"><span class="trust-dot"></span> 60-Day Money-Back</span>
+            <span class="trust-item"><span class="trust-dot"></span> 3,000+ Customers • 4.7★</span>
+            <span class="trust-item"><span class="trust-dot"></span> 🔒 Secure Checkout</span>
+            <span class="trust-item"><span class="trust-dot"></span> 🚚 Fast Shipping</span>
+          </div>
+
+          <p class="muted small" style="margin-top:.7rem; color:#fffa; font-weight:700;">
+            ⚡ Limited Offer: Free shipping + bonus guide ends tonight at 11:59 PM.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROOF STRIP -->
+      <section class="quiz-card testimonials-section">
+        <h3 class="h3">Real People. Real Sleep Wins.</h3>
+        <div class="testimonials-grid">
+          <div class="testimonial">
+            <img src="./Images/user1.jpg" alt="Sarah J." class="testimonial-pic" style="width:56px;height:56px;border-radius:50%;margin-bottom:.4rem;">
+            <p class="testimonial-text">“I stopped the 11 pm snack runs. Sleep came easier — and the scale finally moved.”</p>
+            <p class="testimonial-name">Sarah J.</p>
+            <p class="testimonial-meta">Lost 8 lbs in 4 weeks • Improved sleep quality</p>
+          </div>
+          <div class="testimonial">
+            <img src="./Images/user2.jpg" alt="Mike R." class="testimonial-pic" style="width:56px;height:56px;border-radius:50%;margin-bottom:.4rem;">
+            <p class="testimonial-text">“Fixing sleep first changed everything. Down 9 lbs in 6 weeks without extreme dieting.”</p>
+            <p class="testimonial-name">Mike R.</p>
+            <p class="testimonial-meta">Better recovery • More morning energy</p>
+          </div>
+          <div class="testimonial">
+            <img src="./Images/user3.jpg" alt="Lena K." class="testimonial-pic" style="width:56px;height:56px;border-radius:50%;margin-bottom:.4rem;">
+            <p class="testimonial-text">“Finally sleeping through the night — and it shows on the scale and in my mood.”</p>
+            <p class="testimonial-name">Lena K.</p>
+            <p class="testimonial-meta">Better mood • Visible results in 3 weeks</p>
+          </div>
+        </div>
+
+        <div class="center" style="margin-top:1.2rem;">
+          <a class="btn btn-primary js-offer" href="#" rel="nofollow sponsored" aria-label="Start my sleep-first fat-loss plan">
+            Start My Sleep-First Fat-Loss Plan →
+          </a>
+          <p class="muted small" style="margin-top:.5rem;">60-Day Guarantee • No subscription required</p>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="quiz-card">
+        <h3 class="h3">FAQs</h3>
+        <details>
+          <summary>Is SleepLean safe?</summary>
+          <p class="muted small">Formulated for healthy adults. Always read the label and consult a professional if you take medication, are pregnant, or have a condition.</p>
+        </details>
+        <details>
+          <summary>Do I need a strict diet?</summary>
+          <p class="muted small">No extreme diets. Focus on protein, whole foods, walking, and the bedtime routine. Better sleep makes better choices easier.</p>
+        </details>
+        <details>
+          <summary>What if it doesn’t work for me?</summary>
+          <p class="muted small">There’s a 60-day money-back guarantee via the official checkout.</p>
+        </details>
+      </section>
+
+      <!-- Disclosure + light urgency echo -->
+      <section class="quiz-card">
+        <p class="muted small">This page may contain affiliate links. Results vary. Educational content only; not medical advice.</p>
+        <p class="muted small" style="margin-top:.35rem; color:#fffa; font-weight:700;">⏳ Today’s free-shipping bonus is limited.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <nav class="footer-nav">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ================= Conversion helpers ================= -->
+  <script>
+    // 1) YOUR AFFILIATE LINK (set once)
+    const OFFER_URL = 'https://4b62220qpir4wqdn06iaz0gibt.hop.clickbank.net';
+
+    // 2) Apply UTMs to all .js-offer links + safe analytics click tracking
+    (function(){
+      const utm = location.search ? location.search.replace(/^\?/, '') : '';
+      const finalUrl = OFFER_URL ? (OFFER_URL + (OFFER_URL.includes('?') ? '&' : '?') + utm) : '#';
+      document.querySelectorAll('a.js-offer').forEach(a => {
+        a.href = finalUrl;
+        a.setAttribute('rel','nofollow sponsored');
+        a.addEventListener('click', () => {
+          if (window.gtag) { gtag('event','click',{event_category:'CTA',event_label:'ResultPage'}); }
+          if (window.fbq)  { fbq('trackCustom','CTA_Click',{placement:'ResultPage'}); }
+        }, {passive:true});
+      });
+    })();
+
+    // 3) Sticky CTA reveal on scroll (mobile + desktop)
+    const stickyEl = document.querySelector('.sticky-cta');
+    const revealSticky = () => {
+      if (!stickyEl) return;
+      const show = window.scrollY > 320;
+      stickyEl.classList.toggle('show', show);
+    };
+    document.addEventListener('scroll', revealSticky, {passive:true});
+    window.addEventListener('load', revealSticky);
+
+    // 4) Simple reveal animation for cards
+    const observer = ('IntersectionObserver' in window)
+      ? new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){ e.target.classList.add('reveal'); observer.unobserve(e.target); }
+          });
+        },{threshold:.12})
+      : null;
+    document.querySelectorAll('.quiz-card').forEach(el=> observer && observer.observe(el));
+  </script>
+
+  <!-- Sticky CTA (visible on scroll) -->
+  <div class="sticky-cta" aria-hidden="true">
+    <a class="js-offer" href="#" rel="nofollow sponsored">🔥 Start My Sleep-First Fat-Loss Plan →</a>
+  </div>
+</body>
+</html>

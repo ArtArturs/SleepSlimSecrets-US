@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sleep & Slim Quiz – 30 Seconds</title>
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="style.css?v=9">
+
+<style>
+:root{
+  --page:#0a1021;
+  --ink:#eaf0ff; --muted:#a7b4e9; --focus:#b8c3ff;
+  --pill:#fff; --pillText:#26324d; --pillHover:#f7f8ff;
+  --accent1:#6e83ff; --accent2:#a48cff;
+  --hero-h:50vh; --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;min-height:100%}
+body.quiz-force{
+  color:var(--ink);
+  font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+  background:transparent !important;
+  position:relative;
+  min-height:100vh;
+}
+/* full-page background from --hero */
+body.quiz-force::before{
+  content:""; position:fixed; inset:0;
+  background-image:var(--hero);
+  background-size:cover; background-position:center center; background-repeat:no-repeat;
+  z-index:-2;
+}
+/* dark blue overlay */
+body.quiz-force::after{
+  content:""; position:fixed; inset:0;
+  background:linear-gradient(to bottom, rgba(5,10,25,.78), rgba(5,10,25,.58) 45%, rgba(5,10,25,.44) 100%);
+  pointer-events:none; z-index:-1;
+}
+
+/* header */
+.site-header{position:fixed;left:0;right:0;top:0;z-index:50;transition:background .25s,box-shadow .25s}
+.site-header .header-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;max-width:1100px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.55rem;color:#fff;text-decoration:none;font-weight:900}
+.brand-dot{width:10px;height:10px;border-radius:999px;background:#8aa3ff;box-shadow:0 0 0 3px rgba(138,163,255,.25)}
+.site-header.scrolled{background:rgba(7,10,22,.55) !important;backdrop-filter:saturate(160%) blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.25) !important}
+.steps{color:var(--muted);font-weight:800}
+
+/* progress */
+.progress-wrap{position:sticky;top:56px;z-index:40}
+.progress{height:8px;border-radius:999px;margin:8px auto 0;width:min(680px,92%);background:transparent !important;border:none !important;box-shadow:none !important}
+.progress__bar{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,var(--accent1),var(--accent2))}
+
+/* hero acts as spacer only */
+.hero{
+  position:relative;height:var(--hero-h);min-height:320px;z-index:0;
+  -webkit-mask-image:none !important; mask-image:none !important;
+  background:transparent !important;
+}
+.hero-bg{display:none !important}
+.hero::after{display:none !important}
+
+/* layout */
+main{position:relative;z-index:1;margin-top:calc(var(--hero-h) * -0.46)}
+.container{width:min(900px,92%);margin:0 auto}
+.quiz-wrap{width:min(720px,92%);margin:0 auto;text-align:center}
+.quiz-wrap, .container, .quiz-card, .card, .panel, .box, .section, form,
+footer, .site-footer, .trust, .cta-final, .wrapper{
+  background:transparent !important;border:none !important;box-shadow:none !important;outline:0 !important;
+}
+
+/* type */
+.title{font-weight:900;letter-spacing:.2px;font-size:clamp(1.9rem,4.6vw,2.6rem);margin:0 0 1.1rem}
+.eyebrow{color:var(--muted);font-weight:800;margin:.2rem 0 .4rem}
+
+/* options */
+.options{display:grid;gap:.8rem;margin:1rem auto 1.6rem;max-width:580px}
+.pill{position:relative;display:flex;align-items:center;justify-content:center;
+  background:var(--pill);color:var(--pillText);border:0;border-radius:var(--radius);
+  padding:.95rem 2.9rem;font-weight:700;cursor:pointer;
+  box-shadow:0 2px 0 rgba(0,0,0,.06), 0 1px 12px rgba(8,12,30,.18);
+  transition:transform .12s ease, background .12s ease, box-shadow .12s ease;}
+.pill:hover{transform:translateY(-1px);background:var(--pillHover);box-shadow:0 3px 0 rgba(0,0,0,.07), 0 8px 18px rgba(8,12,30,.22)}
+.pill input{display:none}
+.pill::before{content:"";position:absolute;left:14px;top:50%;width:18px;height:18px;border-radius:50%;
+  border:2px solid #9aa6ff;background:transparent;transform:translateY(-50%)}
+.pill::after{content:"";position:absolute;right:16px;top:50%;width:16px;height:10px;transform:translateY(-54%) rotate(-45deg);
+  border-left:3px solid transparent;border-bottom:3px solid transparent;opacity:0;transition:opacity .12s ease}
+.pill:has(input:checked){background:var(--pillHover)}
+.pill:has(input:checked)::before{background:#9aa6ff;box-shadow:inset 0 0 0 4px #fff}
+.pill:focus-within{outline:3px solid var(--focus);outline-offset:2px;border-radius:var(--radius)}
+
+/* nav buttons */
+.nav{display:flex;gap:.6rem;justify-content:center;margin-top:.1rem}
+.btn{appearance:none;border:0;border-radius:999px;cursor:pointer;font-weight:900}
+.btn-ghost{padding:.8rem 1rem;background:transparent;border:1px solid rgba(207,214,255,.3);color:#eaf0ff}
+.btn-primary{padding:.85rem 1.25rem;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#0a1021}
+
+/* email field */
+.email input{width:100%;max-width:580px;margin:0 auto;display:block;padding:1rem 1rem;border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:#fff;outline:none}
+.email input::placeholder{color:#e6ebffbb}
+.email input:focus{border-color:#b6bfff;background:rgba(255,255,255,.08)}
+.muted{color:var(--muted);font-size:.92rem}
+
+/* steps */
+.step{display:none;opacity:0;transition:opacity .24s ease}
+.step.is-active{display:block;opacity:1}
+
+/* footer */
+.footer-grid, .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted)}
+.footer-nav a{color:#ccd6ff !important;text-decoration:none}
+.footer-nav a:hover{text-decoration:underline}
+
+/* mobile */
+@media (max-width:640px){
+  :root{ --hero-h:54vh; }
+  main{ margin-top:calc(var(--hero-h) * -0.40); }
+}
+
+/* a11y */
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+
+<body class="quiz-force" style="--hero:url('./Images/ChatGPT Image Oct 16, 2025, 08_37_54 PM.png')">
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-dot"></span> SleepSlimSecrets</a>
+    <span class="steps" id="stepsLabel">Step 1 of 5</span>
+  </div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress"><div class="progress__bar" id="pbar"></div></div>
+</div>
+
+<section class="hero"><div class="hero-bg" aria-hidden="true"></div></section>
+
+<main>
+  <div class="container quiz-wrap">
+    <p class="eyebrow">We’ve all got sleep struggles</p>
+    <h1 class="title" id="titleNow">How many hours of sleep do you usually get?</h1>
+
+    <form id="quizForm" action="https://formsubmit.co/arturs.jonuss@yahoo.com" method="POST" novalidate>
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" id="nextUrl" value="">
+      <input type="hidden" name="_subject" value="New Sleep & Slim Quiz Lead">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="UTM" id="utmField" />
+
+      <input type="hidden" name="Sleep Hours" id="ans_q1" />
+      <input type="hidden" name="Primary Goal" id="ans_q2" />
+      <input type="hidden" name="Late-night Hunger" id="ans_q3" />
+      <input type="hidden" name="Evening Energy" id="ans_q4" />
+
+      <!-- STEP 1 -->
+      <section class="step is-active" data-step="1" aria-labelledby="q1">
+        <h2 class="visually-hidden" id="q1">How many hours of sleep do you usually get?</h2>
+        <div class="options">
+          <label class="pill"><input type="radio" name="q1" value="Less than 6">Less than 6</label>
+          <label class="pill"><input type="radio" name="q1" value="6–8">6–8</label>
+          <label class="pill"><input type="radio" name="q1" value="More than 8">More than 8</label>
+        </div>
+        <div class="nav"><button type="button" class="btn btn-primary" data-next>Next →</button></div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="step" data-step="2" aria-labelledby="q2" aria-hidden="true">
+        <h2 class="visually-hidden" id="q2">What’s your main goal right now?</h2>
+        <div class="options">
+          <label class="pill"><input type="radio" name="q2" value="Lose belly fat">Lose belly fat</label>
+          <label class="pill"><input type="radio" name="q2" value="Increase energy">Increase energy</label>
+          <label class="pill"><input type="radio" name="q2" value="Sleep better">Sleep better</label>
+        </div>
+        <div class="nav">
+          <button type="button" class="btn btn-ghost" data-back>← Back</button>
+          <button type="button" class="btn btn-primary" data-next>Next →</button>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="step" data-step="3" aria-labelledby="q3" aria-hidden="true">
+        <h2 class="visually-hidden" id="q3">Do you usually feel hungry late at night?</h2>
+        <div class="options">
+          <label class="pill"><input type="radio" name="q3" value="Yes, most nights">Yes, most nights</label>
+          <label class="pill"><input type="radio" name="q3" value="Sometimes">Sometimes</label>
+          <label class="pill"><input type="radio" name="q3" value="Rarely/Never">Rarely/Never</label>
+        </div>
+        <div class="nav">
+          <button type="button" class="btn btn-ghost" data-back>← Back</button>
+          <button type="button" class="btn btn-primary" data-next>Next →</button>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="step" data-step="4" aria-labelledby="q4" aria-hidden="true">
+        <h2 class="visually-hidden" id="q4">How is your energy in the evening?</h2>
+        <div class="options">
+          <label class="pill"><input type="radio" name="q4" value="Wired but tired">Wired but tired</label>
+          <label class="pill"><input type="radio" name="q4" value="Low energy">Low energy</label>
+          <label class="pill"><input type="radio" name="q4" value="Calm and relaxed">Calm and relaxed</label>
+        </div>
+        <div class="nav">
+          <button type="button" class="btn btn-ghost" data-back>← Back</button>
+          <button type="button" class="btn btn-primary" data-next>Next →</button>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section class="step" data-step="5" aria-labelledby="q5" aria-hidden="true">
+        <h2 class="visually-hidden" id="q5">Where should we send your personalized Sleep & Slim plan?</h2>
+        <p class="muted" style="margin:.2rem 0 1rem">Free • No spam • Unsubscribe anytime</p>
+        <div class="email">
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required />
+        </div>
+        <div class="nav" style="margin-top:.8rem">
+          <button type="button" class="btn btn-ghost" data-back>← Back</button>
+          <button type="submit" class="btn btn-primary">Get My Plan →</button>
+        </div>
+      </section>
+    </form>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <p class="muted">This page may use affiliate links. Results vary. Not medical advice.</p>
+    <nav class="footer-nav">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // header blur
+  const header = document.querySelector('.site-header');
+  const blur = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  blur(); window.addEventListener('scroll', blur, { passive: true });
+
+  const form       = document.getElementById('quizForm');
+  const steps      = [...document.querySelectorAll('.step')];
+  const pbar       = document.getElementById('pbar');
+  const stepsLabel = document.getElementById('stepsLabel');
+  const titleNow   = document.getElementById('titleNow');
+  const TITLES = [
+    "How many hours of sleep do you usually get?",
+    "What’s your main goal right now?",
+    "Do you usually feel hungry late at night?",
+    "How is your energy in the evening?",
+    "Where should we send your personalized Sleep & Slim plan?"
+  ];
+
+  // Preserve UTMs for result page and email
+  const qs = window.location.search || "";
+  const utmString = qs.replace(/^\?/, "");
+  const utmField = document.getElementById('utmField');
+  if (utmField) utmField.value = utmString;
+
+  const RESULT_PAGE = "result-page.html";
+
+  let cur = 1, total = steps.length;
+
+  const show = (n) => {
+    steps.forEach((s, i) => {
+      const on = (i + 1) === n;
+      s.classList.toggle('is-active', on);
+      s.style.display = on ? 'block' : 'none';
+      s.setAttribute('aria-hidden', on ? 'false' : 'true');
+    });
+    cur = n;
+    const pct = Math.round((n - 1) / (total - 1) * 100);
+    if (pbar) pbar.style.width = pct + '%';
+    if (stepsLabel) stepsLabel.textContent = 'Step ' + n + ' of ' + total;
+    if (titleNow) titleNow.textContent = TITLES[n - 1] || TITLES[0];
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  show(1);
+
+  const hasAns = (n) => !!document.querySelector('input[name="q' + n + '"]:checked');
+
+  // Keep hidden fields in sync when selecting options
+  const syncHidden = (n) => {
+    const checked = document.querySelector('input[name="q' + n + '"]:checked');
+    const map = {1:'ans_q1', 2:'ans_q2', 3:'ans_q3', 4:'ans_q4'};
+    if (checked && map[n]) {
+      const hid = document.getElementById(map[n]);
+      if (hid) hid.value = checked.value;
+    }
+  };
+
+  document.addEventListener('change', (e) => {
+    const name = e.target && e.target.name;
+    if (name && /^q[1-4]$/.test(name)) {
+      const n = parseInt(name.slice(1), 10);
+      syncHidden(n);
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    const nextBtn = e.target.closest('[data-next]');
+    const backBtn = e.target.closest('[data-back]');
+    if (nextBtn) {
+      e.preventDefault();
+      if (cur <= 4 && !hasAns(cur)) {
+        alert("Please select an option to continue.");
+        return;
+      }
+      // save current answer before moving on
+      if (cur <= 4) syncHidden(cur);
+      show(Math.min(cur + 1, total));
+    }
+    if (backBtn) {
+      e.preventDefault();
+      show(Math.max(cur - 1, 1));
+    }
+  });
+
+  // Submit: send to FormSubmit, then redirect to result page (keep UTMs)
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    // ensure all answer fields are filled if user jumped
+    [1,2,3,4].forEach(syncHidden);
+
+    const fd = new FormData(form);
+    try {
+      // no-cors so it won't block
+      await fetch(form.action, { method: 'POST', body: fd, mode: 'no-cors' });
+    } catch (err) {
+      // even if network blocks, still move to results for UX
+      console.warn('Form submit error (ignored):', err);
+    }
+    const dest = RESULT_PAGE + (utmString ? ('?' + utmString) : '');
+    window.location.href = dest;
+  });
+})();
+</script>
+</body>
+</html>
